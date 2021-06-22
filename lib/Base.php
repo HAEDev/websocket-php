@@ -249,6 +249,8 @@ class Base implements LoggerAwareInterface
 
         if ($opcode === 'close') {
             // Get the close status.
+            $status_bin = $status = '';
+            
             if ($payload_length > 0) {
                 $status_bin = $payload[0] . $payload[1];
                 $status = bindec(sprintf("%08b%08b", ord($payload[0]), ord($payload[1])));
